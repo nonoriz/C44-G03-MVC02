@@ -20,9 +20,13 @@ namespace GymManagementSystemUL
 
 
             //builder.Services.AddScoped<IMemberRepository, MemberRepository>();
-            //builder.Services.AddScoped<IPlanRepository, PlanRepository>();
+            builder.Services.AddScoped<IPlanRepository, PlanRepository>();
             //builder.Services.AddScoped<ISessionRepository, SessionRepository>();
-            
+
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 
 
 
