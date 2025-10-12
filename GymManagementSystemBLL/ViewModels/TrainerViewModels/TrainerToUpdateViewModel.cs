@@ -37,7 +37,7 @@ namespace GymManagementSystemBLL.ViewModels.TrainerViewModels
         [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "City Can contain only Letters And Spaces")]
         public string City { get; set; } = null!;
 
-        public Specialties Specialization { get; set; } = null!;
+        public Specialties Specialization { get; set; }
 
     }
 }

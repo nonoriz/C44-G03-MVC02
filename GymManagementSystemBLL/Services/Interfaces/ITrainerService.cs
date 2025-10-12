@@ -12,7 +12,7 @@ namespace GymManagementSystemBLL.Services.Interfaces
     {
         IEnumerable<TrainerViewModel> GettAllTrainers();
 
-        bool CreateMember(CreateTrainerViewModel CreatedModel);
+        bool CreateTrainer(CreateTrainerViewModel CreatedModel);
 
         TrainerViewModel? GetTrainerDetails(int TrainerId);
 

@@ -1,32 +1,31 @@
-using GymManagementSystemUL.Models;
+﻿using GymManagementSystemBLL.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
-namespace GymManagementSystemUL.Controllers
+namespace GymManagementSystemPL.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IAnalyticsService analyticsService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IAnalyticsService analyticsService)
         {
-            _logger = logger;
+            this.analyticsService = analyticsService;
         }
-
-        public IActionResult Index()
+        public ViewResult Index()
         {
+            var Data = analyticsService.GetAnalyticsData();
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        //public RedirectResult Redirect()
+        //{
+        //    return Redirect("https://foregoing-sunshine-22c.notion.site/Dot-Net-Back-End-Developer-RoadMap-108abbeedc9580888d75e84ba465e9fd");
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //}
+
+        //public ContentResult Content()
+        //{
+        //    return Content("Hell From Gym Management System");
+        //}
     }
 }
